@@ -1,12 +1,5 @@
 FROM php:8.4-fpm
 
-RUN echo 'deb http://mirror.yandex.ru/debian/ bookworm main \
-    deb-src http://mirror.yandex.ru/debian/ bookworm main \
-    deb http://mirror.yandex.ru/debian-security bookworm-security main contrib \
-    deb-src http://mirror.yandex.ru/debian-security bookworm-security main contrib \
-    deb http://mirror.yandex.ru/debian/ bookworm-updates main contrib \
-    deb-src http://mirror.yandex.ru/debian/ bookworm-updates main contrib' > /etc/apt/sources.list.d/ubuntu.sources
-
 
 RUN apt-get update && apt-get install -y \
      apt-utils \
