@@ -1,7 +1,12 @@
 FROM php:8.4-fpm
 
 
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update && apt-get install -y \
+     git \
+     curl && \
+     docker-php-ext-install pdo_mysql bcmath gd zip && \
+     apt-get clean && \
+     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY ./_docker/app/php.ini /usr/local/etc/php/conf.d/php.ini
 
